@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class TennisGame2 implements TennisGame{
     public int P1point = 0;
@@ -37,14 +39,15 @@ public class TennisGame2 implements TennisGame{
     }
 
     public String subValidacion101(String score){
-        if (P1point == 0)
-            score = "Love";
-        if (P1point == 1)
-            score = "Fifteen";
-        if (P1point == 2)
-            score = "Thirty";
+
+        Map<Integer, String> map = new HashMap<>();
+        map.put(0, "Love");
+        map.put(1, "Fifteen");
+        map.put(2, "Thirty");
+        score = map.get(P1point);
         score += "-All";
         return score;
+
     }
 
     public String subValidacion102(String score){
@@ -59,13 +62,11 @@ public class TennisGame2 implements TennisGame{
     }
 
     public String validacion201(String score){
-        if (P1point == 1)
-            P1res = "Fifteen";
-        if (P1point == 2)
-            P1res = "Thirty";
-        if (P1point == 3)
-            P1res = "Forty";
-
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "Fifteen");
+        map.put(2, "Thirty");
+        map.put(3, "Forty");
+        P1res = map.get(P1point);
         P2res = "Love";
         score = P1res + "-" + P2res;
         return score;
@@ -74,13 +75,11 @@ public class TennisGame2 implements TennisGame{
     public String terceraValidacion(String score){
         if (P2point > 0 && P1point==0)
         {
-            if (P2point == 1)
-                P2res = "Fifteen";
-            if (P2point == 2)
-                P2res = "Thirty";
-            if (P2point == 3)
-                P2res = "Forty";
-
+            Map<Integer, String> map = new HashMap<>();
+            map.put(1, "Fifteen");
+            map.put(2, "Thirty");
+            map.put(3, "Forty");
+            P2res = map.get(P2point);
             P1res = "Love";
             score = P1res + "-" + P2res;
         }

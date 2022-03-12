@@ -24,7 +24,7 @@ public class TennisGame3 implements TennisGame {
             return ((puntajeJugador1 - puntajeJugador2) * (puntajeJugador1 - puntajeJugador2) == 1) ? "Advantage " + score : "Win for " + score;
         }
     }
-    
+
     public void puntoGanador(String playerName){
         if (playerName == "player1")
             this.puntajeJugador1 += 1;

@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class TennisGame1 implements TennisGame {
     private int m_score1 = 0;
@@ -34,21 +35,15 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String siScoreIgual(int m_score1, int m_score2, String score){
-            switch (m_score1)
-            {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-            }
+        if (m_score1 >= 3) {
+            return "Deuce";
+        }
+
+        Map<Integer, String> map = new HashMap<>();
+        map.put(0, "Love-All");
+        map.put(1, "Fifteen-All");
+        map.put(2, "Thirty-All");
+        score = map.get(m_score1);
         return score;
     }
 
@@ -60,6 +55,7 @@ public class TennisGame1 implements TennisGame {
             else score ="Win for player2";
         return score;
     }
+
 
     public String puntaje(int m_score1, int m_score2, String score){
         int tempScore;
@@ -73,21 +69,14 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String metodoSwitch(int tempScore, String score){
-        switch(tempScore)
-        {
-            case 0:
-                score += "Love";
-                break;
-            case 1:
-                score += "Fifteen";
-                break;
-            case 2:
-                score += "Thirty";
-                break;
-            case 3:
-                score += "Forty";
-                break;
-        }
+
+        Map<Integer, String> map = new HashMap<>();
+        map.put(0, "Love");
+        map.put(1, "Fifteen");
+        map.put(2, "Thirty");
+        map.put(3, "Forty");
+        score += map.get(tempScore);
+
      return score;
     }
 }
