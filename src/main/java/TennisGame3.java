@@ -1,6 +1,6 @@
 
 public class TennisGame3 implements TennisGame {
-    
+
     private int puntajeJugador2;
     private int puntajeJugador1;
     private String jugador1;
@@ -13,7 +13,9 @@ public class TennisGame3 implements TennisGame {
 
     public String getScore() {
         String score;
-        if (puntajeJugador1 < 4 && puntajeJugador2 < 4 && !(puntajeJugador1 + puntajeJugador2 == 6)) {
+        Boolean primerBoolean = puntajeJugador1 < 4 && puntajeJugador2 < 4;
+        Boolean segundoBoolean = puntajeJugador1 + puntajeJugador2 == 6;
+    if (primerBoolean && !(segundoBoolean)) {
             String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
             score = p[puntajeJugador1];
             return (puntajeJugador1 == puntajeJugador2) ? score + "-All" : score + "-" + p[puntajeJugador2];
@@ -24,6 +26,7 @@ public class TennisGame3 implements TennisGame {
             return ((puntajeJugador1 - puntajeJugador2) * (puntajeJugador1 - puntajeJugador2) == 1) ? "Advantage " + score : "Win for " + score;
         }
     }
+
 
     public void puntoGanador(String playerName){
         if (playerName == "player1")
